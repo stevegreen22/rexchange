@@ -1,7 +1,7 @@
 version: "2"
 services:
   app:
-    build: ./rexchangeApplication
+    build: ./app
     # link to another container(db)and connect on port 5000
     links:
       - db
