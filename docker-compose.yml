@@ -1,0 +1,18 @@
+version: "2"
+services:
+  app:
+    build: ./rexchangeApplication
+    # link to another container(db)and connect on port 5000
+    links:
+      - db
+    ports:
+      - "5000:5000"
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3206"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro 
+  
